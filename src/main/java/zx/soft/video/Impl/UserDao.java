@@ -7,18 +7,15 @@ import zx.soft.video.model.Users;
 import zx.soft.video.util.MybatisUtils;
 
 public class UserDao {
-	
-	/**
-	 * login
-	 */
-	public Users login(Users users){
-		
-		try(SqlSession session = MybatisUtils.getSessionFactory().openSession()) {
+
+	public Users login(Users users) {
+
+		try (SqlSession session = MybatisUtils.getSessionFactory().openSession()) {
 			UserMapper mapper = session.getMapper(UserMapper.class);
-			if(mapper.login(users) == null){
+			if (mapper.login(users) == null) {
 				return null;
-			}else{
-				return users;
+			} else {
+				return mapper.login(users);
 			}
 		}
 	}

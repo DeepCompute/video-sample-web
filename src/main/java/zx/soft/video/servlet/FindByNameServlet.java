@@ -12,39 +12,28 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import zx.soft.video.model.Users;
+public class FindByNameServlet extends HttpServlet {
 
-public class DetailServlet extends HttpServlet {
+	private static final long serialVersionUID = 3688271166472696708L;
 
-	private static final long serialVersionUID = -6718499963140222139L;
 	FrameSample frameSample = new FrameSample(MybatisConfig.ServerEnum.video);
-	int totalcount = 0;
 	int pageindex = 1;
 
 	@Override
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		//		List<Details> list = new DetailDao().getDetails();
-
-		Users users = (Users) request.getSession().getAttribute("users");
-		String name = users.getUname();
-		List<FrameTextSample> list = frameSample.selectFrameSamplesLastUserEditCount(name, 0, 2);
-
+		String uname = new String(request.getParameter("uname").toString().getBytes("ISO-8859-1"), "UTF-8");
+		List<FrameTextSample> list = frameSample.selectFrameSamplesLastUser(uname);
+		int totalcount = list.size();
 		if (request.getParameter("pageindex") == null) {
 			pageindex = 1;
 		} else {
 			pageindex = Integer.parseInt(request.getParameter("pageindex"));
 		}
-		totalcount = list.size();
 
 		request.setAttribute("pageindex", pageindex);
 		request.setAttribute("totalcount", totalcount);
 		request.setAttribute("list", list);
 		request.getRequestDispatcher("table.jsp").forward(request, response);
-	}
-
-	@Override
-	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		doGet(request, response);
 	}
 
 }

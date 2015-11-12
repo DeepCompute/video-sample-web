@@ -12,7 +12,7 @@ public class MybatisUtils {
 	private static SqlSessionFactory sqlSessionFactory = null;
 
 	static {
-		try (InputStream inputStream = Resources.getResourceAsStream("mybatis-conf.xml");) {
+		try (InputStream inputStream = Resources.getResourceAsStream("mybatis.xml");) {
 			sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
 		} catch (IOException e) {
 			e.printStackTrace();

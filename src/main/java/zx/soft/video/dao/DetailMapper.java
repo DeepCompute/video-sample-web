@@ -9,10 +9,10 @@ import org.apache.ibatis.annotations.Update;
 import zx.soft.video.model.Details;
 
 public interface DetailMapper {
-	
+
 	@Select("select * from Detail")
 	public List<Details> getDetails();
-	
+
 	/**
 	 * 更新描述,作者，更新次数
 	 * @param details
@@ -25,4 +25,5 @@ public interface DetailMapper {
 	 */
 	@Delete("DELETE FROM `Detail` WHERE did = #{did}")
 	public void deleteDetail(int did);
+
 }

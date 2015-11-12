@@ -18,15 +18,19 @@ public class LoginServlet extends HttpServlet {
 	@Override
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		Users users = new Users();
-		users.setUname(request.getParameter("uname").toString());
+		users.setUname(new String(request.getParameter("uname").toString().getBytes("ISO-8859-1"), "UTF-8"));
 		users.setUpass(request.getParameter("upass").toString());
-		if ((new UserDao().login(users)) == null) {
+
+		System.out.println("name = " + new UserDao().login(users));
+
+		if (new UserDao().login(users) == null) {
 			// fail
 			response.sendRedirect("login.jsp");
 		} else {
 			// sucess
+			Users getuser = new UserDao().login(users);
 			HttpSession session = request.getSession(false);
-			session.setAttribute("uname", users.getUname());
+			session.setAttribute("users", getuser);
 			response.sendRedirect("servlet");
 		}
 

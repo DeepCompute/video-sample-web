@@ -88,6 +88,14 @@
 	<build>
 		<finalName>${project.artifactId}</finalName>
 		<plugins>
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>1.8</source>
+					<target>1.8</target>
+					<encoding>UTF-8</encoding>
+				</configuration>
+			</plugin>
 			<!-- tomcat插件 -->
 			<plugin>
 				<groupId>org.apache.tomcat.maven</groupId>
@@ -96,13 +104,6 @@
 				<configuration>
 					<port>8080</port>
 					<path>/${project.build.finalName}</path>
-				</configuration>
-			</plugin>
-			<plugin>
-				<artifactId>maven-compiler-plugin</artifactId>
-				<configuration>
-					<source>1.7</source>
-					<target>1.7</target>
 				</configuration>
 			</plugin>
 		</plugins>
