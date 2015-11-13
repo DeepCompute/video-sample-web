@@ -7,10 +7,10 @@ import zx.soft.video.model.Users;
 
 public interface UserMapper {
 
-	@Insert("INSERT INTO  `Users` (  `uname` ,  `upass` ) VALUES (#{uname},  #{upass})")
+	@Insert("INSERT INTO `users` (`uname`,`upass`) VALUES (#{uname},#{upass})")
 	public void addUser(Users users);
 
-	@Select("SELECT * FROM `Users` WHERE uname = #{uname} and upass = #{upass}")
+	@Select("SELECT * FROM `users` WHERE `uname` = #{uname} AND `upass` = #{upass}")
 	public Users login(Users users);
 
 }

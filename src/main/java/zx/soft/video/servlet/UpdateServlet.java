@@ -13,7 +13,8 @@ import javax.servlet.http.HttpServletResponse;
 public class UpdateServlet extends HttpServlet {
 
 	private static final long serialVersionUID = 8286758349209283727L;
-	FrameSample frameSample = new FrameSample(MybatisConfig.ServerEnum.video);
+
+	private FrameSample frameSample = new FrameSample(MybatisConfig.ServerEnum.video);
 
 	@Override
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

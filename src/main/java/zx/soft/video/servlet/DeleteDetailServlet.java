@@ -7,7 +7,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import zx.soft.video.Impl.DetailDao;
+import zx.soft.video.dao.DetailDao;
 
 public class DeleteDetailServlet extends HttpServlet {
 

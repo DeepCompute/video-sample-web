@@ -1,5 +1,7 @@
 package zx.soft.video.model;
 
+import com.google.common.base.MoreObjects;
+
 public class Details {
 
 	private int did;
@@ -50,8 +52,8 @@ public class Details {
 
 	@Override
 	public String toString() {
-		return "Details [did=" + did + ", image=" + image + ", describe=" + describe + ", times=" + times + ", uname="
-				+ uname + "]";
+		return MoreObjects.toStringHelper(this).add("did", this.did).add("image", this.image)
+				.add("describe", this.describe).add("times", this.times).add("uname", this.uname).toString();
 	}
 
 }

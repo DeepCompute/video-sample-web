@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import zx.soft.video.Impl.UserDao;
+import zx.soft.video.dao.UserDao;
 import zx.soft.video.model.Users;
 
 public class LoginServlet extends HttpServlet {
@@ -33,7 +33,6 @@ public class LoginServlet extends HttpServlet {
 			session.setAttribute("users", getuser);
 			response.sendRedirect("servlet");
 		}
-
 	}
 
 	@Override

@@ -17,14 +17,15 @@ import zx.soft.video.model.Users;
 public class DetailServlet extends HttpServlet {
 
 	private static final long serialVersionUID = -6718499963140222139L;
-	FrameSample frameSample = new FrameSample(MybatisConfig.ServerEnum.video);
-	int totalcount = 0;
-	int pageindex = 1;
+
+	private FrameSample frameSample = new FrameSample(MybatisConfig.ServerEnum.video);
+
+	private int totalcount = 0;
+	private int pageindex = 1;
 
 	@Override
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		//		List<Details> list = new DetailDao().getDetails();
-
 		Users users = (Users) request.getSession().getAttribute("users");
 		String name = users.getUname();
 		List<FrameTextSample> list = frameSample.selectFrameSamplesLastUserEditCount(name, 0, 2);

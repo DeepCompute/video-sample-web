@@ -5,9 +5,13 @@ import com.google.common.base.Objects;
 
 public class Users {
 
+	// 用户ID
 	private int uid;
+	// 用户名
 	private String uname;
+	// 用户密码
 	private String upass;
+	// 用户状态，1-管理员，0-普通用户
 	private int state;
 
 	public int getUid() {

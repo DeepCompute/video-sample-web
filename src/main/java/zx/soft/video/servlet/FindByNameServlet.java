@@ -16,8 +16,8 @@ public class FindByNameServlet extends HttpServlet {
 
 	private static final long serialVersionUID = 3688271166472696708L;
 
-	FrameSample frameSample = new FrameSample(MybatisConfig.ServerEnum.video);
-	int pageindex = 1;
+	private FrameSample frameSample = new FrameSample(MybatisConfig.ServerEnum.video);
+	private int pageindex = 1;
 
 	@Override
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

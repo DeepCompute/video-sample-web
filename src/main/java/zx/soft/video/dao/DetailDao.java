@@ -1,10 +1,9 @@
-package zx.soft.video.Impl;
+package zx.soft.video.dao;
 
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
 
-import zx.soft.video.dao.DetailMapper;
 import zx.soft.video.model.Details;
 import zx.soft.video.util.MybatisUtils;
 
@@ -19,7 +18,6 @@ public class DetailDao {
 
 	/**
 	 * 更新描述
-	 * @param details
 	 */
 	public void updateDescribe(Details details) {
 		try (SqlSession session = MybatisUtils.getSessionFactory().openSession()) {

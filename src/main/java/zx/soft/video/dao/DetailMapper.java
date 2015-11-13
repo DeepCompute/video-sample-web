@@ -10,20 +10,19 @@ import zx.soft.video.model.Details;
 
 public interface DetailMapper {
 
-	@Select("select * from Detail")
+	@Select("SELECT * FROM `Detail`")
 	public List<Details> getDetails();
 
 	/**
-	 * 更新描述,作者，更新次数
-	 * @param details
+	 * 更新描述、作者、更新次数
 	 */
-	@Update("UPDATE `Detail` SET `describe`= #{describe},`times`= times+1,`uname`= #{uname} WHERE did = #{did}")
+	@Update("UPDATE `Detail` SET `describe` = #{describe},`times` = times + 1,`uname` = #{uname} WHERE `did` = #{did}")
 	public void updateDescribe(Details details);
 
 	/**
 	 * 删除描述
 	 */
-	@Delete("DELETE FROM `Detail` WHERE did = #{did}")
+	@Delete("DELETE FROM `Detail` WHERE `did` = #{did}")
 	public void deleteDetail(int did);
 
 }
